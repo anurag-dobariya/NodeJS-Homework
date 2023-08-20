@@ -1,5 +1,4 @@
-const Category = require("../models/category.model");
-const { categoryService } = require("../services");
+  const { categoryService } = require("../services");
 
 /** create category */
 const createCategory = async (req, res) => {
@@ -23,5 +22,5 @@ const createCategory = async (req, res) => {
 
 
 module.exports = {
-    createCategory,
+    createCategory
 };
