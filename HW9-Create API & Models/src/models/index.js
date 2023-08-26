@@ -1,0 +1,11 @@
+module.exports.book = require("./book.model.js");
+module.exports.hotel = require("./hotel.model.js");
+module.exports.bus = require("./bus.model.js");
+module.exports.stationary = require("./stationary.model.js");
+module.exports.school = require("./school.model.js");
+module.exports.travel = require("./travel.model.js");
+module.exports.pharmacy = require("./pharmacy.model.js");
+module.exports.jewellery = require("./jewellery.model.js");
+module.exports.movie = require("./movie.model.js");
+module.exports.music = require("./music.model.js");
+module.exports.grocery = require("./grocery.model.js");
