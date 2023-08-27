@@ -1,4 +1,3 @@
-module.exports.bookValidation = require("./book.validation.js");
 module.exports.hotelValidation = require("./hotel.validation.js");
 module.exports.busValidation = require("./bus.validation.js");
 module.exports.stationaryValidation = require("./stationary.validation.js");

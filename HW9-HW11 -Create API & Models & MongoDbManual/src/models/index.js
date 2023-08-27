@@ -1,4 +1,3 @@
-module.exports.book = require("./book.model.js");
 module.exports.hotel = require("./hotel.model.js");
 module.exports.bus = require("./bus.model.js");
 module.exports.stationary = require("./stationary.model.js");
