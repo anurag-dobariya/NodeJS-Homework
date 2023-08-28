@@ -18,8 +18,21 @@ const deleteSchool = async (schoolId) => {
     return schhol.findByIdAndDelete(schoolId);
 };
 
+  // Get school details by id
+ const getSchoolById = async (schoolId) =>{
+    return school.findById(schoolId);
+ };
+
+   // update school details by id
+ const schoolUpdate = async(schoolId , updateBody) =>{
+    return school.findByIdAndUpdate(schoolId , {$set : updateBody});
+ };
+
+
 module.exports = {
     createSchool,
     getSchoolList,
-    deleteSchool
+    deleteSchool,
+    getSchoolById,
+    schoolUpdate
 };

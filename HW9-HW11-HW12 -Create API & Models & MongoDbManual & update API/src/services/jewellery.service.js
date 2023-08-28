@@ -18,9 +18,20 @@ const { jewellery } = require("../models");
     return jewellery.findByIdAndDelete(jewelleryId);
   };
   
+    // Get jewellery details by id
+const getJewelleryById = async (jewelleryId) => {
+  return jewellery.findById(jewelleryId);
+};
+
+  // jewellery details update by id
+const jewelleryUpdate = async (jewelleryId, updateBody) => {
+  return jewellery.findByIdAndUpdate(jewelleryId, { $set: updateBody });
+};
   
   module.exports = {
     createJewellery,
     getJewelleryList,
-    deleteJewellery
+    deleteJewellery,
+    getJewelleryById,
+    jewelleryUpdate
   };

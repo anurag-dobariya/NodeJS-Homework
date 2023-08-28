@@ -18,8 +18,20 @@ const {travel} = require("../models");
     return travel.findByIdAndDelete();
  };
 
+   // Get travel details by id
+const getTravelById = async (travelId) => {
+   return travel.findById(travelId);
+ };
+ 
+   // travel details update by id
+ const travelUpdate = async (travelId, updateBody) => {
+   return travel.findByIdAndUpdate(travelId, { $set: updateBody });
+ };
+ 
  module.exports = {
     createTravel,
     getTravelList,
-    deleteTravel
+    deleteTravel,
+    getTravelById,
+    travelUpdate
  }

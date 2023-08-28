@@ -55,8 +55,31 @@ const deleteSchool = async (req, res) => {
     }
   };
 
+  /** school details update by id */
+  const schoolUpdate = async(req,res) =>{
+    try {
+      const schoolId = req.params.schoolId;
+      const schoolExists = await schoolService.getSchoolById(schoolId);
+      if(!schoolExists){
+        throw new Error("school not found");
+      }
+
+      await schoolService.schoolUpdate(schoolId , req.body);
+      res.status(200).json({
+        success:true,
+        message:"school detais updated successfully",
+      })
+    } catch (error) {
+      res.status(400).json({
+        success:false,
+        message:error.message
+      })
+    }
+  }
+
 module.exports = {
     createSchool,
     getSchoolList,
-    deleteSchool
+    deleteSchool,
+    schoolUpdate
 }

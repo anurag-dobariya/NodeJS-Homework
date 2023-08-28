@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
         trim:true 
     },
     last_name:{
-        type:string,
+        type:String,
         trim:true
     },
     email:{
@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
         trim:true
     },
     password:{
-        type:string,
+        type:String,
     },
     is_active:{
         type:Boolean,

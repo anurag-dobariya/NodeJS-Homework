@@ -18,9 +18,20 @@ const deleteHotel= async (hotelId) => {
   return hotel.findByIdAndDelete(hotelId);
 };
 
+  // Get hotel details by id
+const getHotelById = async (hotelId) => {
+  return hotel.findById(hotelId);
+};
+
+  // hotel details update by id
+const hotelUpdate = async (hotelId, updateBody) => {
+  return hotel.findByIdAndUpdate(hotelId, { $set: updateBody });
+};
 
 module.exports = {
   createHotel,
   getHotelList,
-  deleteHotel
+  deleteHotel,
+  getHotelById,
+  hotelUpdate
 };

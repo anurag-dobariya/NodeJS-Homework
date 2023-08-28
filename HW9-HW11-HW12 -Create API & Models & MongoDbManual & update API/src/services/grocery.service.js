@@ -18,9 +18,20 @@ const { grocery } = require("../models");
     return grocery.findByIdAndDelete(groceryId);
   };
   
+    // Get grocery details by id
+const getGroceryById = async (groceryId) => {
+  return grocery.findById(groceryId);
+};
+
+  // grocery details update by id
+const groceryUpdate = async (groceryId, updateBody) => {
+  return grocery.findByIdAndUpdate(groceryId, { $set: updateBody });
+};
   
   module.exports = {
     createGrocery,
     getGroceryList,
-    deleteGrocery
+    deleteGrocery,
+    getGroceryById,
+    groceryUpdate
   };

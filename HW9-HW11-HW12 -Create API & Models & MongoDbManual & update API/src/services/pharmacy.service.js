@@ -17,10 +17,22 @@ const { pharmacy } = require("../models");
   const deletePharmacy= async (pharmacyId) => {
     return pharmacy.findByIdAndDelete(pharmacyId);
   };
+
+    // Get pharmacy details by id
+const getPharmacyById = async (pharmacyId) => {
+  return pharmacy.findById(pharmacyId);
+};
+
+  // pharmacy details update by id
+const pharmacyUpdate = async (pharmacyId, updateBody) => {
+  return pharmacy.findByIdAndUpdate(pharmacyId, { $set: updateBody });
+};
   
   
   module.exports = {
     createPharmacy,
     getPharmacyList,
-    deletePharmacy
+    deletePharmacy,
+    getPharmacyById,
+    pharmacyUpdate
   };

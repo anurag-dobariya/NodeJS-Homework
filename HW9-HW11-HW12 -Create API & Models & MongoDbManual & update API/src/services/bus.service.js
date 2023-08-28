@@ -18,9 +18,20 @@ const { bus } = require("../models");
     return bus.findByIdAndDelete(busId);
   };
   
+  // Get bus details by id
+  const getBusById = async (busId) =>{
+    return bus.findById(busId);
+  };
+
+  // update bus details by id
+  const busUpdate = async (busId , updateBody) =>{
+    return bus.findByIdAndUpdate(busId , {$set : updateBody});
+  };
   
   module.exports = {
     createBus,
     getBusList,
-    deleteBus
+    deleteBus,
+    getBusById,
+    busUpdate
   };
