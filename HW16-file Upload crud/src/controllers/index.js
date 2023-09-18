@@ -1,0 +1,1 @@
+module.exports.galleryController = require("./gallery.controller");

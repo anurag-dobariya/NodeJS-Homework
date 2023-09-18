@@ -1,0 +1,1 @@
+module.exports.galleryValidation = require("./gallery.validation");

@@ -1,0 +1,1 @@
+module.exports.galleryService = require("./gallery.service");
