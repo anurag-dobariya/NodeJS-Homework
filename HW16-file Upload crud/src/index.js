@@ -5,6 +5,8 @@ const {connectDb} = require("./db/dbConnection");
 const bodyParser = require("body-parser");
 const routes = require("./routes/v1");
 const cors = require("cors");
+const path = require("path");
+require("./helpers/crons");
 
 const app = express();
 
@@ -21,11 +23,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
  */
 app.use(bodyParser.json());
 
+/** Get image */
+// app.use(express.static(`./public`));
+app.use(express.static(path.join(__dirname,`./public`)));
+
 /** enable cors */
 app.use(cors());
 app.options("*", cors());
 
-// creating route namespace     
+// creating route namespace
 app.use("/v1", routes);
 
 /** whenever route not created and you try to use that route then throw error. */
@@ -33,10 +39,10 @@ app.use((req, res, next) => {
   next(new Error("Route not found!"));
 });
 
-// database connection 
+// database connection
 connectDb();
 
-// create server using http 
+// create server using http
 const server = http.createServer(app);
 
 server.listen(config.port, ()=>{

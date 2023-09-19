@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { galleryService } = require("../services");
 
-// create image 
+// create image
 const createImage = async (req, res) => {
     try {
         const reqBody = req.body;
@@ -31,7 +31,7 @@ const createImage = async (req, res) => {
 // get gallery image list by imageId
 const getImageById = async (req, res) => {
     try {
-        const imageExists = await imageService.getImageById(
+        const imageExists = await galleryService.getImageById(
             req.params.imageId
         );
         if (!imageExists) {
@@ -41,7 +41,7 @@ const getImageById = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "image details get successfully!",
-            data: productExists,
+            data: imageExists,
         });
     } catch (error) {
         res.status(error?.statusCode || 400).json({
@@ -55,7 +55,7 @@ const getImageById = async (req, res) => {
 /** Get image list */
 const getImageList = async (req, res) => {
     try {
-        const getList = await imageService.getimageList(req, res);
+        const getList = await galleryService.getImageList(req, res);
 
         res.status(200).json({
             success: true,
@@ -70,16 +70,16 @@ const getImageList = async (req, res) => {
     }
 };
 
-// delete image 
+// delete image
 const deleteImage = async (req, res) => {
     try {
         const imageId = req.params.imageId;
-        const imageExists = await imageService.getImageById(imageId);
+        const imageExists = await galleryService.getImageById(imageId);
         if (!imageExists) {
             throw new Error("image not found!");
         }
 
-        const deletedImage = await imageService.deleteImage(imageId);
+        const deletedImage = await galleryService.deleteImage(imageId);
         if (deletedImage) {
             const filePath = `./public/gallery_images/${imageExists.gallery_image}`;
             if (fs.existsSync(filePath)) {
@@ -103,12 +103,12 @@ const deleteImage = async (req, res) => {
     }
 };
 
-// update image details 
+// update image details
 const updateImage = async (req, res) => {
     try {
         const reqBody = req.body;
         const imageId = req.params.imageId;
-        const imageExists = await imageService.getImageById(imageId);
+        const imageExists = await galleryService.getImageById(imageId);
         if (!imageExists) {
             throw new Error("image not found!");
         }
@@ -117,7 +117,7 @@ const updateImage = async (req, res) => {
             reqBody.gallery_image = req.file.filename;
         }
 
-        const updatedImage = await ImageService.updateImage(
+        const updatedImage = await galleryService.updateImage(
             imageId,
             reqBody
         );
@@ -135,7 +135,7 @@ const updateImage = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "image details updated successfully!",
-            data: updatedProduct,
+            data: updatedImage,
         });
     } catch (error) {
         res.status(error?.statusCode || 400).json({

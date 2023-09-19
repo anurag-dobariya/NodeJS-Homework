@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 
 dotenv.config({ path: "./.env" });
 
-// creating schema for env vars 
+// creating schema for env vars
 const envVarSchema = joi.object({
     PORT: joi.number().default(3000),
     MONGODB_URL: joi.string().trim().description("Mongodb url"),

@@ -14,5 +14,5 @@ const pick = (object, keys) => {
       return obj;
     }, {});
   };
-  
+
   module.exports = pick;

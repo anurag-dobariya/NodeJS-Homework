@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const config = require("../config/config");
 
-// create function for database mongoose connection 
+// create function for database mongoose connection
 
 const connectDb = async() =>{
     mongoose.connect(config.mongodb.url , config.mongodb.options)

@@ -1,28 +1,28 @@
 const { gallery } = require("../models");
 
-// create image 
+// create image
 const createImage = async (reqBody) => {
     return gallery.create(reqBody);
 };
 
-// get image list 
+// get image list
 const getImageList = async (req,res) => {
-    return gallery.find()
+    return gallery.find();
 };
 
-// delete image 
+// delete image
 const deleteImage = async (imageId) => {
     return gallery.findOneAndDelete(imageId);
 };
 
-// get image details by id 
+// get image details by id
 const getImageById = async (imageId) => {
-    return gallery.findOne(imageId)
+    return gallery.findById(imageId)
 };
 
-// update image details 
+// update image details
 const updateImage = async (imageId, reqBody) => {
-    return gallery.findOneAndUpdate(imageId, { $set: reqBody });
+    return gallery.findByIdAndUpdate(imageId, { $set: reqBody });
 };
 
 module.exports = {
